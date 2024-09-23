@@ -200,6 +200,16 @@ body {
     overflow: auto;
     margin-bottom: 44px;
 }
+
+.songList li{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid white;
+    margin: 10px 2px;
+    padding: 5px;
+    border-radius: 5px;
+
+}
 .playnow {
     display: flex;
     justify-content: center;
