@@ -21,6 +21,10 @@ const playMusic=(track)=>{
     let audio= new Audio();
     currentSong.src = "/songs/"+track;
     currentSong. play();
+    play.src="img/pause.svg"
+    document.querySelector(".songinfo").innerHTML = track;
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
+
 }
 async function main(){
 
@@ -53,6 +57,18 @@ async function main(){
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
 
         })
+    })
+
+    //attach event listener to playbar buttons
+    play.addEventListener("click",()=>{
+        if(currentSong.paused){
+            currentSong.play();
+            play.src="img/pause.svg"
+        }
+        else{
+            currentSong.pause();
+            play.src="img/play.svg"
+        }
     })
 
 }
