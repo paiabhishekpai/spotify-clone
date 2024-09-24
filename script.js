@@ -1,6 +1,21 @@
 console.log("script starts here");
 let currentSong = new Audio(); 
 
+function secondsToMinutesSeconds(seconds) {
+    if (isNaN(seconds) || seconds < 0) {
+        return "00:00";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+
 //a function to get all the songs to play
 async function getSongs(){
     let a = await fetch("http://127.0.0.1:3000/songs/")
@@ -69,6 +84,12 @@ async function main(){
             currentSong.pause();
             play.src="img/play.svg"
         }
+    })
+
+     // Listen for timeupdate event
+     currentSong.addEventListener("timeupdate", () => {
+        document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     })
 
 }
