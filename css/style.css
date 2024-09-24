@@ -208,6 +208,7 @@ body {
     margin: 10px 2px;
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
 
 }
 .playnow {
