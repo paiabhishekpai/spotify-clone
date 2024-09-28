@@ -1,2 +1,4 @@
 # Spotify Clone
-using JavaScript, HTML & CSS
+Using JavaScript, HTML & CSS
+
+This is a clone of the popular music site Spotify made using HTML, CSS & JS
