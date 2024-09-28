@@ -84,6 +84,21 @@ body {
     padding: 20px;
 }
 
+.hamburger{
+    display: none;
+}
+
+.hamburgerContainer{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.close{
+    display: none;
+}
+
 .spotifyPlaylists {
     padding: 16px;
 }
@@ -285,4 +300,33 @@ body {
     justify-content: space-between;
     margin: 20px 0;
     width: 100%;
+}
+
+@media (max-width:1000px){
+    .left{
+        position: absolute;
+        left: -120%;
+        transition: all 0.3s;
+        z-index: 1;
+        width: 370px;
+        background-color: black;
+    }
+
+    .left .close{
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        width: 30px;
+
+    }
+    .right{
+        width: 100vw;
+    }
+    .playbar{
+        width: 95vw;
+    }
+    .hamburger{
+        display: block;
+    }
 }
