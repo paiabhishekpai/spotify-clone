@@ -275,6 +275,7 @@ body {
     color: black;
     padding: 0 12px;
     width: 250px;
+    text-align: center;
 }
 
 .songtime {
@@ -310,6 +311,7 @@ body {
         z-index: 1;
         width: 370px;
         background-color: black;
+        padding: 0;
     }
 
     .left .close{
@@ -324,9 +326,31 @@ body {
         width: 100vw;
     }
     .playbar{
-        width: 95vw;
+        width: calc(100vw -  60px);
+    }
+    .seekbar{
+        width: calc(100vw - 70px);
     }
     .hamburger{
         display: block;
+    }
+
+    .card{
+        width: 90vw;
+    }
+    .cardContainer{
+        margin: 0;
+        justify-content: center;
+    }
+    .right{
+        margin: 0;
+    }
+
+    .abovebar{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
     }
 }

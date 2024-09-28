@@ -1,5 +1,6 @@
 console.log("script starts here");
 let currentSong = new Audio();
+let songs;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -38,12 +39,12 @@ const playMusic = (track, pause=false) => {
         currentSong.play();
         play.src = "img/pause.svg";
     }
-    document.querySelector(".songinfo").innerHTML = track;
+    document.querySelector(".songinfo").innerHTML = decodeURI(track);
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 };
 async function main() {
     //get songs
-    let songs = await getSongs();
+    songs = await getSongs();
     playMusic(songs[0], true);
     let songUL = document
         .querySelector(".songList")
@@ -110,6 +111,23 @@ async function main() {
     //adding event listener for close 
     document.querySelector(".close").addEventListener("click", ()=>{
         document.querySelector(".left").style.left = "-120%"
+    })
+
+    //adding event listener to previous and next
+    previous.addEventListener("click",()=>{
+        currentSong.pause();
+        let index=songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+        if((index-1)>=0){
+            playMusic(songs[index-1])
+        }
+    })
+
+    next.addEventListener("click",()=>{
+        currentSong.pause();
+        let index=songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+        if((index+1)<songs.length){
+            playMusic(songs[index+1])
+        }
     })
 }
 
