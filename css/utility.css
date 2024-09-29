@@ -40,6 +40,10 @@
   padding: 10px;
 }
 
+.txtcentre{
+  text-align: center;
+}
+
 /* For Webkit browsers (e.g., Chrome, Safari) */
 /* ::-webkit-scrollbar { */
   /* width: 12px; */

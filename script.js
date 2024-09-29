@@ -55,7 +55,7 @@ async function main() {
             songUL.innerHTML +
             `<li><img class="invert" width="34" src="img/music.svg" alt="">
                             <div class="info">
-                                <div> ${song.replaceAll("%20", " ")}</div>
+                                <div class="txtcentre"> ${song.replaceAll("%20", " ")}</div>
                                 <div>Abhi</div>
                             </div>
                             <div class="playnow">
